@@ -54,17 +54,12 @@ public abstract class MinioConfigurationUtils {
         if (StringUtils.isNoneBlank(properties.getUserAgentName(), properties.getUserAgentVersion())) {
             minioClient.setAppInfo(properties.getUserAgentName(), properties.getUserAgentVersion());
         }
-        if (BooleanUtils.isTrue(properties.getEnableAccelerateEndpoint())) {
-            minioClient.enableAccelerateEndpoint();
-        } else {
-            minioClient.disableAccelerateEndpoint();
-        }
-        if (BooleanUtils.isTrue(properties.getEnableDualStackEndpoint())) {
+        if (BooleanUtils.isTrue(properties.getDualStackEnabled())) {
             minioClient.enableDualStackEndpoint();
         } else {
             minioClient.disableDualStackEndpoint();
         }
-        if (BooleanUtils.isTrue(properties.getEnableVirtualStyleEndpoint())) {
+        if (BooleanUtils.isTrue(properties.getVirtualStyleEnabled())) {
             minioClient.enableVirtualStyleEndpoint();
         } else {
             minioClient.disableVirtualStyleEndpoint();

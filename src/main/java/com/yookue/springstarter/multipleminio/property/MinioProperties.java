@@ -107,17 +107,12 @@ public class MinioProperties implements Serializable {
     private Duration writeTimeout = Duration.ofSeconds(30L);
 
     /**
-     * Enables accelerate endpoint for Amazon S3 endpoint
-     */
-    private Boolean enableAccelerateEndpoint;
-
-    /**
      * Enables dual-stack endpoint for Amazon S3 endpoint
      */
-    private Boolean enableDualStackEndpoint;
+    private Boolean dualStackEnabled;
 
     /**
      * Enables virtual-style endpoint
      */
-    private Boolean enableVirtualStyleEndpoint;
+    private Boolean virtualStyleEnabled;
 }
