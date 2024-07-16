@@ -1,8 +1,0 @@
-# Multiple Minio for Spring Boot Starter
-# Copyright (c) 2020 Yookue Ltd. All rights reserved.
-# https://yookue.com
-
-org.springframework.boot.autoconfigure.EnableAutoConfiguration =\
-    com.yookue.springstarter.multipleminio.config.PrimaryMinioAutoConfiguration,\
-    com.yookue.springstarter.multipleminio.config.SecondaryMinioAutoConfiguration,\
-    com.yookue.springstarter.multipleminio.config.TertiaryMinioAutoConfiguration

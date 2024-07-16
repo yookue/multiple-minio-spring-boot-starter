@@ -17,7 +17,6 @@
 package com.yookue.springstarter.multipleminio.util;
 
 
-import javax.annotation.Nonnull;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -26,6 +25,7 @@ import com.yookue.springstarter.multipleminio.property.MinioProperties;
 import io.minio.BucketExistsArgs;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
+import jakarta.annotation.Nonnull;
 
 
 /**
@@ -54,17 +54,12 @@ public abstract class MinioConfigurationUtils {
         if (StringUtils.isNoneBlank(properties.getUserAgentName(), properties.getUserAgentVersion())) {
             minioClient.setAppInfo(properties.getUserAgentName(), properties.getUserAgentVersion());
         }
-        if (BooleanUtils.isTrue(properties.getEnableAccelerateEndpoint())) {
-            minioClient.enableAccelerateEndpoint();
-        } else {
-            minioClient.disableAccelerateEndpoint();
-        }
-        if (BooleanUtils.isTrue(properties.getEnableDualStackEndpoint())) {
+        if (BooleanUtils.isTrue(properties.getDualStackEnabled())) {
             minioClient.enableDualStackEndpoint();
         } else {
             minioClient.disableDualStackEndpoint();
         }
-        if (BooleanUtils.isTrue(properties.getEnableVirtualStyleEndpoint())) {
+        if (BooleanUtils.isTrue(properties.getVirtualStyleEnabled())) {
             minioClient.enableVirtualStyleEndpoint();
         } else {
             minioClient.disableVirtualStyleEndpoint();
