@@ -22,7 +22,7 @@
 
     <groupId>com.yookue.springstarter</groupId>
     <artifactId>multiple-minio-spring-boot-starter</artifactId>
-    <version>3.3.1</version>
+    <version>3.3.2</version>
 
     <name>${project.artifactId}</name>
     <description>Multiple Minio for Spring Boot Starter</description>
@@ -47,7 +47,7 @@
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
-        <spring-boot.version>3.3.1</spring-boot.version>
+        <spring-boot.version>3.3.2</spring-boot.version>
 
         <guava.version>33.2.1-jre</guava.version>
         <minio.version>8.5.11</minio.version>
