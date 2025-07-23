@@ -22,7 +22,7 @@
 
     <groupId>com.yookue.springstarter</groupId>
     <artifactId>multiple-minio-spring-boot-starter</artifactId>
-    <version>3.5.2</version>
+    <version>3.5.3</version>
 
     <name>${project.artifactId}</name>
     <description>Yookue Multiple Minio for Spring Boot Starter</description>
@@ -47,7 +47,7 @@
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
-        <spring-boot.version>3.5.2</spring-boot.version>
+        <spring-boot.version>3.5.3</spring-boot.version>
 
         <minio.version>8.5.17</minio.version>
 
@@ -58,8 +58,8 @@
         <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
-        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
-        <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
+        <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+        <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
