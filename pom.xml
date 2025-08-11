@@ -50,6 +50,7 @@
         <spring-boot.version>3.5.3</spring-boot.version>
 
         <minio.version>8.5.17</minio.version>
+        <plexus-spring-util.version>3.5.3</plexus-spring-util.version>
 
         <javadoc-docent-maven-plugin.version>2.0.2</javadoc-docent-maven-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -82,10 +83,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
@@ -104,7 +101,34 @@
             <version>${minio.version}</version>
             <exclusions>
                 <exclusion>
+                    <groupId>org.checkerframework</groupId>
+                    <artifactId>checker-qual</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.google.errorprone</groupId>
+                    <artifactId>error_prone_annotations</artifactId>
+                </exclusion>
+                <exclusion>
                     <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.yookue.commonplexus</groupId>
+            <artifactId>plexus-spring-util</artifactId>
+            <version>${plexus-spring-util.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>

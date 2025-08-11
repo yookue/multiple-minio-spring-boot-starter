@@ -26,8 +26,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.yookue.springstarter.multipleminio.property.MinioProperties;
-import com.yookue.springstarter.multipleminio.util.MinioConfigurationUtils;
+import com.yookue.commonplexus.springutil.property.MinioProperties;
+import com.yookue.commonplexus.springutil.util.MinioConfigWraps;
 import io.minio.MinioClient;
 import lombok.NonNull;
 
@@ -57,6 +57,6 @@ public class TertiaryMinioAutoConfiguration {
     @ConditionalOnBean(name = MINIO_PROPERTIES, value = MinioProperties.class)
     @ConditionalOnMissingBean(name = MINIO_CLIENT)
     public MinioClient minioClient(@Qualifier(value = MINIO_PROPERTIES) @NonNull MinioProperties properties) throws Exception {
-        return MinioConfigurationUtils.minioClient(properties);
+        return MinioConfigWraps.minioClient(properties);
     }
 }
