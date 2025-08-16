@@ -47,8 +47,8 @@ public class SecondaryMinioAutoConfiguration {
     public static final String MINIO_CLIENT = "secondaryMinioClient";    // $NON-NLS-1$
 
     @Bean(name = MINIO_PROPERTIES)
-    @ConditionalOnMissingBean(name = MINIO_PROPERTIES)
     @ConfigurationProperties(prefix = PROPERTIES_PREFIX)
+    @ConditionalOnMissingBean(name = MINIO_PROPERTIES)
     public MinioProperties minioProperties() {
         return new MinioProperties();
     }
