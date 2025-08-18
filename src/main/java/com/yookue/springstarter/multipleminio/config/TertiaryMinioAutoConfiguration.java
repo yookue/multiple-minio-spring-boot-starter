@@ -38,7 +38,7 @@ import lombok.NonNull;
  * @author David Hsing
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = TertiaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "host")
+@ConditionalOnProperty(prefix = TertiaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "endpoint")
 @ConditionalOnClass(value = MinioClient.class)
 @AutoConfigureAfter(value = SecondaryMinioAutoConfiguration.class)
 public class TertiaryMinioAutoConfiguration {

@@ -40,7 +40,7 @@ import jakarta.annotation.Nonnull;
  * @reference "https://min.io/"
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = PrimaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "host")
+@ConditionalOnProperty(prefix = PrimaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "endpoint")
 @ConditionalOnClass(value = MinioClient.class)
 @SuppressWarnings({"JavadocDeclaration", "JavadocLinkAsPlainText"})
 public class PrimaryMinioAutoConfiguration {
