@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Yookue Ltd. All rights reserved.
+ * Copyright (c) 2020 Unikue Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yookue.springstarter.multipleminio.config;
+package cn.unikue.springstarter.multipleminio.config;
 
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,8 +26,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.yookue.commonplexus.springutil.property.MinioProperties;
-import com.yookue.commonplexus.springutil.util.MinioConfigWraps;
+import cn.unikue.commonplexus.springutil.property.MinioProperties;
+import cn.unikue.commonplexus.springutil.util.MinioConfigWraps;
 import io.minio.MinioClient;
 import lombok.NonNull;
 

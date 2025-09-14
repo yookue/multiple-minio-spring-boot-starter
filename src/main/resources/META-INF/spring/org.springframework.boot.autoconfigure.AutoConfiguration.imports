@@ -1,7 +1,7 @@
 # Multiple Minio for Spring Boot Starter
-# Copyright (c) 2020 Yookue Ltd. All rights reserved.
-# https://yookue.com
+# Copyright (c) 2020 Unikue Ltd. All rights reserved.
+# https://unikue.cn
 
-com.yookue.springstarter.multipleminio.config.PrimaryMinioAutoConfiguration
-com.yookue.springstarter.multipleminio.config.SecondaryMinioAutoConfiguration
-com.yookue.springstarter.multipleminio.config.TertiaryMinioAutoConfiguration
+cn.unikue.springstarter.multipleminio.config.PrimaryMinioAutoConfiguration
+cn.unikue.springstarter.multipleminio.config.SecondaryMinioAutoConfiguration
+cn.unikue.springstarter.multipleminio.config.TertiaryMinioAutoConfiguration

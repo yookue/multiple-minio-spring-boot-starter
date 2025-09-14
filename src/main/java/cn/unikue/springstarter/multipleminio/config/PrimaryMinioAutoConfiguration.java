@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Yookue Ltd. All rights reserved.
+ * Copyright (c) 2020 Unikue Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.yookue.springstarter.multipleminio.config;
+package cn.unikue.springstarter.multipleminio.config;
 
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -26,26 +25,30 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.yookue.commonplexus.springutil.property.MinioProperties;
-import com.yookue.commonplexus.springutil.util.MinioConfigWraps;
+import org.springframework.context.annotation.Primary;
+import cn.unikue.commonplexus.springutil.property.MinioProperties;
+import cn.unikue.commonplexus.springutil.util.MinioConfigWraps;
 import io.minio.MinioClient;
-import lombok.NonNull;
+import jakarta.annotation.Nonnull;
 
 
 /**
- * Tertiary configuration for {@link io.minio.MinioClient}
+ * Primary configuration for {@link io.minio.MinioClient}
  *
  * @author David Hsing
+ * @see io.minio.MinioClient
+ * @reference "https://min.io/"
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = TertiaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "endpoint")
+@ConditionalOnProperty(prefix = PrimaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "endpoint")
 @ConditionalOnClass(value = MinioClient.class)
-@AutoConfigureAfter(value = SecondaryMinioAutoConfiguration.class)
-public class TertiaryMinioAutoConfiguration {
-    public static final String PROPERTIES_PREFIX = "spring.multiple-minio.tertiary";    // $NON-NLS-1$
-    public static final String MINIO_PROPERTIES = "tertiaryMinioProperties";    // $NON-NLS-1$
-    public static final String MINIO_CLIENT = "tertiaryMinioClient";    // $NON-NLS-1$
+@SuppressWarnings({"JavadocDeclaration", "JavadocLinkAsPlainText"})
+public class PrimaryMinioAutoConfiguration {
+    public static final String PROPERTIES_PREFIX = "spring.multiple-minio.primary";    // $NON-NLS-1$
+    public static final String MINIO_PROPERTIES = "primaryMinioProperties";    // $NON-NLS-1$
+    public static final String MINIO_CLIENT = "primaryMinioClient";    // $NON-NLS-1$
 
+    @Primary
     @Bean(name = MINIO_PROPERTIES)
     @ConfigurationProperties(prefix = PROPERTIES_PREFIX)
     @ConditionalOnMissingBean(name = MINIO_PROPERTIES)
@@ -53,10 +56,11 @@ public class TertiaryMinioAutoConfiguration {
         return new MinioProperties();
     }
 
+    @Primary
     @Bean(name = MINIO_CLIENT)
     @ConditionalOnBean(name = MINIO_PROPERTIES, value = MinioProperties.class)
     @ConditionalOnMissingBean(name = MINIO_CLIENT)
-    public MinioClient minioClient(@Qualifier(value = MINIO_PROPERTIES) @NonNull MinioProperties properties) throws Exception {
+    public MinioClient minioClient(@Qualifier(value = MINIO_PROPERTIES) @Nonnull MinioProperties properties) throws Exception {
         return MinioConfigWraps.minioClient(properties);
     }
 }
